@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+
+	<title><ui:insert name="titulo"/></title>
+
+
+	<h:outputStylesheet library="bootstrap/css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="bootstrap/css" name="style.css" />
+
+</h:head>
+
+
+<h:body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="ListaMinicursos.xhtml">Minicurso JSF</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="ListaMinicursos.xhtml">Lista Minicursos</a></li>
+					<li><a href="CadastroMinicurso.xhtml">Cadastrar Minicurso</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="main" class="container-fluid">
+		
+			
+			
+			
+			<h3 class="page-header">
+			<ui:insert name="conteudo"/>
+			</h3>
+			
+			<ui:insert name="corpo" />
+
+
+		
+
+	</div>
+
+	<h:outputScript library="bootstrap/js" name="jquery.min.js"></h:outputScript>
+	<h:outputScript library="bootstrap/js" name="bootstrap.min.js"></h:outputScript>
+
+	
+</h:body>
+
+</html>

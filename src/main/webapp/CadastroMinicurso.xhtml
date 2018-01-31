@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<ui:define name="titulo">Cadastrar Minicursos</ui:define>
+
+	
+
+	<ui:define name="conteudo"> Cadastrar Minicurso</ui:define>
+
+	<ui:define name="corpo">
+	
+	<h:messages autoUpdate="true" class="alert alert-info"/>
+	
+		<h:form>
+
+
+			<div class="row">
+
+				<div class=" col-md-4">
+					<h:outputLabel value="Nome:" />
+					<h:inputText value="#{minicursoBean.minicurso.nome}" class="form-control" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<h:outputLabel value="CargaHoraria:" />
+					<h:inputText value="#{minicursoBean.minicurso.cargaHoraria}" class="form-control" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4">
+					<h:outputLabel value="Local:" />
+					<h:inputText value="#{minicursoBean.minicurso.local}"	class="form-control" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4">
+					<h:outputLabel value="Vagas:" />
+					<h:inputText value="#{minicursoBean.minicurso.vagas}"	class="form-control" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4">
+					<h:outputLabel value="Ministrante:" />
+					<h:inputText value="#{minicursoBean.minicurso.ministrante}"	class="form-control" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4" style="padding: 1%">
+					<h:commandButton value="Salvar"	action="#{minicursoBean.salvarMinicurso}" class="btn btn-primary"  />
+				</div>
+			</div>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

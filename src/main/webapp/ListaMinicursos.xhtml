@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	
+	
+	<ui:define name="titulo">Lista de Minicursos</ui:define>
+	
+	
+	<ui:define name="conteudo"> 	Minicursos 	</ui:define>
+	
+    
+    
+	<ui:define name="corpo">
+	<h:messages autoUpdate="true" infoClass="alert alert-info"/>
+	
+	
+	
+	
+	
+	<h:form>
+	<div class="table-responsive col-md-12">
+		<h:dataTable value="#{minicursoBean.minicursos}" var="minicurso" class="table table-striped">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome" />
+				</f:facet>
+				<h:outputText value="#{minicurso.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Carga Horária" />
+				</f:facet>
+				<h:outputText value="#{minicurso.cargaHoraria}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Local" />
+				</f:facet>
+				<h:outputText value="#{minicurso.local}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Vagas" />
+				</f:facet>
+				<h:outputText value="#{minicurso.vagas}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Ministrante" />
+				</f:facet>
+				<h:outputText value="#{minicurso.ministrante}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Acôes" />
+				</f:facet>
+				
+				<h:commandLink pt:data-toggle="modal" pt:data-target="#editarMinicurso"  value="Editar"   class="btn btn-warning btn-xs" style="margin-left: 0.25em;">
+					<f:setPropertyActionListener target="#{minicursoBean.minicurso}" value="#{minicurso}"/>
+					<f:ajax render=":form_editar:painel_editar"/>
+				</h:commandLink>
+				
+			
+				
+				
+				<h:commandButton value="Excluir" action="#{minicursoBean.excluirMinicurso(minicurso)}" class="btn btn-danger btn-xs" style="margin-left: 0.25em;" />
+				
+				
+			</h:column>
+			
+			
+		</h:dataTable>
+		
+		</div>
+	</h:form>
+	
+	
+	<ui:include src="EditarMinicurso.xhtml"/>
+	
+	
+	</ui:define>
+	
+</ui:composition>
